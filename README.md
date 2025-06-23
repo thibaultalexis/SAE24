@@ -1,1 +1,1 @@
-# SA-24
+Le but de cette SAE24 était de localiser un objet dans une salle d'une taille donnée grâce à des capteurs. Étant donné que nous n'avions pas les capteurs, nous avons réalisé un script qui simule des données de capteurs de sorte à avoir un réel aperçu du code de récupération des valeurs en les mettant dans une base de données puis sur un site Internet hebergé en local. Tout ce projet a été réalisé sur une VM Lubuntu. 
