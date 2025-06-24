@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SAÉ24 – Technique</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="presentation.html">Présentation</a></li>
+        <li><a href="simulation.html">Simulation</a></li>
+        <li><a href="technique.html" class="active">Technique</a></li>
+        <li><a href="equipe.html">Équipe</a></li>
+        <li><a href="cartographie.php">Cartographie</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="case">
+      <h1>Aspect technique</h1>
+      <p>Le fonctionnement du projet est entièrement automatisé par les scripts bash, php et crontab :</p>
+      <ul>
+        <li>Base de données MySQL de XAMPP pour le stockage des mesures et des positions estimées.</li>
+        <li>Mosquitto exécuté dans un conteneur Docker pour la transmission en temps réel des mesures.</li>
+        <li>
+          Scripts Bash pour automatiser :
+          <ul>
+            <li><strong>La simulation du déplacement</strong> (génération d’un point mobile et de mesures pour chaque micro).</li>
+            <li><strong>La captation des mesures</strong> via MQTT et l’insertion en base SQL.</li>
+            <li><strong>Le calcul de la position estimée</strong> toutes les 2 secondes selon les amplitudes reçues.</li>
+          </ul>
+        </li>
+        <li>Mise en place du crontab pour relancer automatiquement après le redémarrage.</li>
+        <li>
+          Cartographie :
+          <ul>
+            <li>Affichage sur une page PHP des dernières positions calculées.</li>
+            <li>Cartographie à jour toutes les 2&nbsp;s, avec tracé de la trajectoire et repères des microphones.</li>
+          </ul>
+        </li>
+        <li>Travail en équipe piloté par GitHub pour le code, la documentation et la coordination entre les membres de l'équipe.</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <ul>
+      <li>IUT Blagnac</li>
+      <li>Bismuth – Alexis – Nassereddine – Taho-Taza – Jaballah</li>
+      <li>2025-2026</li>
+    </ul>
+  </footer>
+</body>
+</html>

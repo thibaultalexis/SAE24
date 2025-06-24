@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SAÉ24 – Simulation</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="presentation.html">Présentation</a></li>
+        <li><a href="simulation.html" class="active">Simulation</a></li>
+        <li><a href="technique.html">Technique</a></li>
+        <li><a href="equipe.html">Équipe</a></li>
+        <li><a href="cartographie.php">Cartographie</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="case">
+      <h1>Simulation des données</h1>
+      <p>Les mesures simulées permettent de tester l’ensemble du système de localisation, sans matériel.</p>
+      <ul>
+        <li>À chaque étape, la position de l’objet est déplacée au centre d’une case de 0,5&nbsp;m dans la grille 16×16.</li>
+        <li>Pour chaque position, chaque microphone génère une valeur d’amplitude qui correspond à la distance à l’objet et d’un bruit aléatoire.</li>
+        <li>Les amplitudes sont publiées via MQTT (mosquitto sur Docker) et stockées automatiquement en base MySQL.</li>
+      </ul>
+
+      <h2>Calcul de la position estimée</h2>
+      <p>
+        La position de l’objet est estimée toutes les deux secondes grâce à un barycentre pondéré&nbsp;: (source : https://fr.wikipedia.org/wiki/Barycentre)
+      </p>
+      <ul>
+        <li>On prend les trois dernières mesures (une par microphone).</li>
+        <li>La position estimée est calculée ainsi&nbsp;:
+          <ul>
+            <li>
+              <code>
+                coord_x = (Σ position_x_microphone × amplitude) / (Σ amplitude)
+              </code>
+            </li>
+            <li>
+              <code>
+                coord_y = (Σ position_y_microphone × amplitude) / (Σ amplitude)
+              </code>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    <ul>
+      <li>IUT Blagnac</li>
+      <li>Bismuth – Alexis – Nassereddine – Taho-Taza – Jaballah</li>
+      <li>2025-2026</li>
+    </ul>
+  </footer>
+</body>
+</html>

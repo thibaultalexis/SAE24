@@ -1,0 +1,169 @@
+/* Root-level custom properties for colors and common values */
+:root {
+  --nav-bg: #002147;           /* Navy blue for navigation bar */
+  --footer-bg: #002147;        /* Navy blue for footer */
+  --page-bg: #f9f7f1;          /* Off-white page background */
+  --mic-color: #d32f2f;        /* Red for microphones and object */
+  --obj-color: #d32f2f;        /* Red for current position marker */
+  --prev-obj-color: #e57373;   /* Lighter red for previous position */
+  --arrow-color: #000000;      /* Black for movement line */
+  --text-color: #333333;       /* Dark gray for body text */
+  --radius: 8px;               /* Border radius for rounded corners */
+}
+
+/* Base body styles */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica;
+  background-color: var(--page-bg);
+  color: var(--text-color);
+}
+
+/* Fixed header at top */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--nav-bg);
+  z-index: 1000;
+}
+
+/* Navigation styling */
+nav {
+  display: flex;
+  justify-content: center; /* Center the menu */
+}
+
+nav ul {
+  list-style: none;        /* Remove bullets */
+  margin: 0;
+  padding: 10px;           /* Vertical padding */
+  display: flex;
+  gap: 20px;               /* Space between items */
+}
+
+nav ul li {
+  border-radius: var(--radius); /* Rounded corners on items */
+  overflow: hidden;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.3s; /* Smooth hover */
+}
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.1); /* Slight highlight on hover */
+}
+
+/* Main content container with top/bottom padding for fixed header/footer */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px 80px; /* space for header and footer */
+}
+
+/* Fixed footer at bottom */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--footer-bg);
+  color: #ffffff;
+  padding: 10px 0;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between; /* Distribute footer items */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+footer li {
+  font-size: 14px;
+}
+
+/* Generic section/card styling */
+section {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th, td {
+  border: 1px solid #cccccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: var(--nav-bg);
+  color: #ffffff;
+}
+
+/* Cartography canvas styling */
+#map {
+  border-radius: var(--radius);
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Legend styling */
+#legend {
+  margin-left: 30px;
+  font-size: 14px;
+}
+
+.legend-symbol,
+.legend-svg {
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 140px; /* extra top padding on mobile */
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer ul {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 20px;
+  }
+}
+/* Gantt diagram styles for presentation page */
+.gantt-title {
+  margin: 2em 0 1em 0;
+  font-weight: bold;
+}
+.gantt-img {
+  display: block;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 2em;
+}
