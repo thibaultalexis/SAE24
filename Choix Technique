@@ -1,0 +1,114 @@
+Présentation des choix techniques – SAÉ24
+1. Objectifs du projet
+La SAÉ24 a pour but de concevoir et de mettre en place un système permettant de localiser un objet ou une personne dans une pièce grâce à deux approches techniques complémentaires :
+Localisation sonore : en exploitant un signal sinusoïdal émis par un objet et capté par trois microphones placés dans la salle.
+
+
+Localisation par ultrasons : en analysant le signal réfléchi par une personne à partir de trois capteurs de distance.
+
+
+L’objectif final est de calculer la position de l’objet ou de la personne (coordonnées x, y) dans une salle, puis de l’afficher sur une interface web dédiée. Le système doit aussi être capable de simuler des déplacements et de les afficher dynamiquement.
+2. Matériaux et outils utilisés
+a) Composants matériels
+Raspberry Pi 3 Model B (x4) :
+
+
+3 pour l’acquisition des données (microphones ou capteurs),
+
+
+1 pour la réception et le traitement centralisé.
+
+
+Microphones avec convertisseurs analogiques-numériques
+
+
+Modules GrovePi+ avec capteurs à ultrasons, éventuellement température et luminosité
+
+
+Infrastructure réseau locale (communication via MQTT)
+
+
+Machine virtuelle pour héberger :
+
+
+un serveur web (via XAMPP),
+
+
+une base de données (MySQL et/ou InfluxDB).
+
+
+b) Environnement logiciel  
+Python : pour le traitement des données capteurs (sonores et ultrason)
+
+
+Bash : pour les scripts d’installation/configuration
+
+
+HTML / CSS / JavaScript / PHP : pour créer le site web d’affichage
+
+
+MQTT : pour la transmission des données entre Raspberry Pi et serveur
+
+
+Git / GitHub : pour le versionnage et le travail collaboratif
+
+
+XAMPP : pour le serveur web local sur la machine virtuelle
+
+
+
+3. Ce que nous allons faire pendant la SAÉ
+Voici les principales tâches que nous allons réaliser durant le projet :
+Partie sonore :
+Générer un signal sinusoïdal modulé en FSK (Frequency Shift Keying)
+
+
+Réception de ce signal par 3 microphones répartis dans la pièce
+
+
+Analyse des amplitudes reçues selon la distance → estimation de position
+
+
+Cartographie des amplitudes dans la pièce
+
+
+Codage de l’algorithme de localisation d’objet à partir de 3 amplitudes
+
+
+Simulation de déplacements et affichage dynamique de la trajectoire
+
+
+Partie ultrason :
+Configuration des capteurs GrovePi+ sur les Raspberry Pi
+
+
+Acquisition des distances renvoyées par la personne dans la pièce
+
+
+Utilisation d’un algorithme de trilatération pour estimer la position
+
+
+Implémentation du suivi de déplacement
+
+
+Affichage de la position en temps réel sur une interface web
+
+
+Partie serveur et interface :
+Installation et configuration d’un broker MQTT
+
+
+Déploiement du serveur web (XAMPP) et de la base de données
+
+
+Développement d’un site web dynamique pour afficher :
+
+
+la position estimée de l’objet ou de la personne
+
+
+les scénarios de déplacement simulés
+
+
+Tests, validation, documentation et mise en ligne du projet via GitHub
+
